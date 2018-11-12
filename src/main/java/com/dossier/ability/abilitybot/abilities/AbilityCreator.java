@@ -9,6 +9,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
+import static com.dossier.ability.abilitybot.constants.KeyboardLayoutConstants.FIND_DOSSIER_COMMAND;
+import static com.dossier.ability.abilitybot.constants.KeyboardLayoutConstants.FIND_DOSSIER_COMMAND_INFO;
 import static com.google.common.base.Preconditions.checkArgument;
 import static org.telegram.abilitybots.api.objects.Locality.ALL;
 import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
@@ -25,19 +27,15 @@ public class AbilityCreator {
     private static final Predicate<Update> messageHasCorrectFormat = update -> update.getMessage().getText().matches(DOSSIER_YEAR_ID_FORMAT);
 
     public static Ability getPublicAbilityWithoutReply(String abilityName, String abilityInfo, SilentSender silent, BiConsumer<MessageContext, SilentSender> consumer) {
-        checkArgument(StringUtils.isNotEmpty(abilityName), "Ability name cannot be null or empty");
-        checkArgument(silent != null, "Silent cannot be null");
         return getDefaultAbilityBuilder(abilityName, abilityInfo, silent, consumer).build();
     }
 
-    public static Ability getFindAbility(String abilityName,
-                                         String abilityInfo,
-                                         SilentSender silent,
+    public static Ability getFindAbility(SilentSender silent,
                                          BiConsumer<MessageContext, SilentSender> replyWhenSubjectFoundConsumer) {
         return Ability
                 .builder()
-                .name(abilityName)
-                .info(abilityInfo)
+                .name(FIND_DOSSIER_COMMAND)
+                .info(FIND_DOSSIER_COMMAND_INFO)
                 .locality(ALL)
                 .privacy(PUBLIC)
                 .action(context -> replyWhenSubjectFoundConsumer.accept(context, silent))
