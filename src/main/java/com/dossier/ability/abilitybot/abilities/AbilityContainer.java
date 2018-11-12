@@ -26,7 +26,7 @@ public class AbilityContainer {
     }
 
     public static Ability getFindAbility(SilentSender silent, BiConsumer<MessageContext, SilentSender> replyWhenSubjectFoundConsumer) {
-        return AbilityCreator.getFindAbility(FIND_DOSSIER_COMMAND, FIND_DOSSIER_COMMAND_INFO, silent, replyWhenSubjectFoundConsumer);
+        return AbilityCreator.getFindAbility(silent, replyWhenSubjectFoundConsumer);
     }
 
     public static Ability getInfoAbility(SilentSender silent) {
