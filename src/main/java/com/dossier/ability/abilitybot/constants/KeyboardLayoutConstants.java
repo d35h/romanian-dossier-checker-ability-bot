@@ -26,6 +26,6 @@ public class KeyboardLayoutConstants {
     /*
      * Messages
      */
-    public final static String WELCOME_MESSAGE = "Welcome to RomanianDossierChecker, to start the search enter '/start'";
+    public final static String WELCOME_MESSAGE = "Welcome to RomanianDossierChecker, to start the search enter '/find'";
 
 }
