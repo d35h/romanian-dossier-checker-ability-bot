@@ -23,7 +23,7 @@ public class SubjectHandlerImpl implements SubjectHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SubjectHandlerImpl.class);
 
-    private final static String SPLITTER_SYMBOL = "\\.|\\;";
+    private final static String SPLITTER_SYMBOL = ".|;";
 
     private final UriParser uriParser;
 
