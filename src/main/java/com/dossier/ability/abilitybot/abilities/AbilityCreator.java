@@ -1,6 +1,5 @@
 package com.dossier.ability.abilitybot.abilities;
 
-import org.apache.commons.lang3.StringUtils;
 import org.telegram.abilitybots.api.objects.Ability;
 import org.telegram.abilitybots.api.objects.MessageContext;
 import org.telegram.abilitybots.api.sender.SilentSender;
@@ -11,7 +10,6 @@ import java.util.function.Predicate;
 
 import static com.dossier.ability.abilitybot.constants.KeyboardLayoutConstants.FIND_DOSSIER_COMMAND;
 import static com.dossier.ability.abilitybot.constants.KeyboardLayoutConstants.FIND_DOSSIER_COMMAND_INFO;
-import static com.google.common.base.Preconditions.checkArgument;
 import static org.telegram.abilitybots.api.objects.Locality.ALL;
 import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
 
