@@ -69,7 +69,7 @@ public class SubjectHandlerImpl implements SubjectHandler {
         return new PDFTextStripper().getText(document).split(SPLITTER_SYMBOL);
     }
 
-    private InputStream getInputStreamFromUri(URI pdfUri) throws IOException {
+    private InputStream getInputStreamFromUri(URI pdfUri) {
         return uriParser.getStreamFromPdfUri(pdfUri, HttpClientBuilder.create().build());
     }
 }
