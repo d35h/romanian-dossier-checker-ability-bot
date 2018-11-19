@@ -5,8 +5,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet author="Dan Zaru" id="insert-into-last-processing-date-table">
-        <insert dbms="h2, postgres"
-                schemaName="public"
+        <insert schemaName="public"
                 tableName="last_processing_date">
             <column name="last_processing_date" valueDate="2016-01-01"/>
         </insert>

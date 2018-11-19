@@ -5,7 +5,7 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
     <changeSet id="create-last-processing-table" author="Dan Zaru">
         <createTable tableName="last_processing_date">
-            <column name="id" type="decimal" autoIncrement="true">
+            <column name="id" autoIncrement="true" type="int">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
