@@ -39,14 +39,15 @@ public class DossierReaderScheduler {
     private static final Logger LOGGER = LoggerFactory.getLogger(DossierReaderScheduler.class);
 
     @Scheduled(cron = "${settings.dossier.reader.scheduler.cron}")
-    public void execute() throws ParseException {
+    public void execute() {
         doExecute();
     }
 
-    private void doExecute() throws ParseException {
-        LOGGER.info("Dossier reader scheduler was executed");
+    private void doExecute() {
+        LOGGER.info("Dossier reader scheduler executed");
         romanianDossierCheckerService.processAndSaveDossierSubjects(dateOfLastProcessedFile.getDate());
         dateOfLastProcessedFile.setDate(Calendar.getInstance().getTime());
         lastProcessingDateService.save(dateOfLastProcessedFile);
+        LOGGER.info("Dossier reader scheduler finished");
     }
 }

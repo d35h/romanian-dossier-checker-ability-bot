@@ -37,21 +37,16 @@ public class WebPageParser {
 
     private final String ministryDossierUrl;
 
-    private final String webParserYear;
-
-
     //This flag allows to resolve links using absolute path instead of relative
     private static final String A_TAG_RESOLVER = "abs:href";
 
     @Autowired
-    public WebPageParser(@Value("${general.ministry.dossier.url}") String ministryDossierUrl,
-                         @Value("${settings.web.parser.year}") String webParserYear) {
+    public WebPageParser(@Value("${general.ministry.dossier.url}") String ministryDossierUrl) {
         this.ministryDossierUrl = ministryDossierUrl;
-        this.webParserYear = webParserYear;
     }
 
     public Map<Date, List<String>> getPdfLinks() {
-        final String regexPdfForSpecifiedYear = "a[href~=/images/.+" + webParserYear + ".*\\.pdf$]";
+        final String regexPdfForSpecifiedYear = "a[href~=/images/.+\\d*.*\\.pdf$]";
         try {
             LOGGER.info("Trying to get web page from the specified URL: {}", ministryDossierUrl);
             List<String> webLinks = getDocumentByUrl(ministryDossierUrl).select(regexPdfForSpecifiedYear).stream().map(link -> link.attr(A_TAG_RESOLVER)).collect(Collectors.toList());
@@ -77,6 +72,6 @@ public class WebPageParser {
     }
 
     private Document getDocumentByUrl(String url) throws IOException {
-        return Jsoup.connect(url).timeout(15 * 1000).get();
+        return Jsoup.connect(url).timeout(30 * 1000).get();
     }
 }
