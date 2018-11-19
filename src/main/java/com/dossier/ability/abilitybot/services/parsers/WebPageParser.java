@@ -46,7 +46,7 @@ public class WebPageParser {
     }
 
     public Map<Date, List<String>> getPdfLinks() {
-        final String regexPdfForSpecifiedYear = "a[href~=/images/.+\\d*.*\\.pdf$]";
+        final String regexPdfForSpecifiedYear = "a[href~=/images/.+.pdf$]";
         try {
             LOGGER.info("Trying to get web page from the specified URL: {}", ministryDossierUrl);
             List<String> webLinks = getDocumentByUrl(ministryDossierUrl).select(regexPdfForSpecifiedYear).stream().map(link -> link.attr(A_TAG_RESOLVER)).collect(Collectors.toList());
