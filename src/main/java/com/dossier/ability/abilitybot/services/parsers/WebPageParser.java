@@ -65,7 +65,7 @@ public class WebPageParser {
         Matcher dateMatcher = Pattern.compile(REGEX_DATE).matcher(url);
         if (!dateMatcher.find()) {
             LOGGER.info("Unable to find date matcher for url: {}", url);
-            return null;
+            return Calendar.getInstance().getTime();
         }
 
         return DateUtils.tryToParse(romanianLocale, dateMatcher.group(), FORMATS);

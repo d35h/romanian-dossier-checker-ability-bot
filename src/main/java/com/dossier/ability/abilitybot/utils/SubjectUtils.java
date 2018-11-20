@@ -10,7 +10,7 @@ public class SubjectUtils {
 
     private final static String REGEX_MATCHER_FOR_DOSSIER_ID_AND_YEAR = "\\((\\d*\\/\\d*)\\)";
 
-    public final static String REGEX_MATCHER_FOR_DOSSIER = "^.*\\(\\d+\\/\\d+\\)$.*";
+    public final static String REGEX_MATCHER_FOR_DOSSIER = "^.*\\(\\d+\\/\\d+\\).*$";
 
     private final static String REGEX_LEADING_AND_TRAILING_WHITESPACES_AND_COMMA = "^[\\s]+|\\s+$|,";
 
