@@ -59,7 +59,7 @@ public class DossierAbilityBot extends AbilityBot {
     }
 
     private String getSubjectFoundMessage(Subject subject) {
-        return "You are on the list" + subject.getPdfUri();
+        return "You are on the list, details can be found here: " + subject.getPdfUri();
     }
 
     private String getNotFoundMessage() {
